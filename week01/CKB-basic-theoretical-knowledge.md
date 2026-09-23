@@ -82,18 +82,18 @@ Congratulations! Now you are prepared for the practical tutorial!
 
 Let's review all the concepts we have learned:
 
-CKB is essentially a chain of cells which are being created and destroyed over and over again.
-A cell is a box that can be used to store any type of data.
-To own a cell and store data on-chain, you need tokens: 1 CKB = 1 Byte.
-The byte size of the entire cell cannot exceed the value of the capacity field.
-To protect your cell, you must put a lock on the cell so that only you or someone you authorize can open it.
-A lock is essentially a piece of code that checks if the cell can be unlocked using arguments and user-provided signatures or proofs.
-The return value of 0 means that the lock was unlocked successfully, while any other value means the unlock attempt failed.
-The lock's code_hash and hash_type fields are used to locate code, which is stored in the data field of a dep cell.
-Each cell can carry two scripts, one is called lock script (default) and the other, type script (optional).
-In one transaction, the lock scripts run for all inputs by group, while the type scripts run for all inputs and outputs by group.
-The differences in the execution mechanism result in different uses for the two types of locks. Lock scripts are often used to protect the ownership of the cell. Type scripts often used to handle the cell transformation rules.
-Constructing a transaction is fundamentally about destroying some cells and creating some new ones.
-That's right, with the above theoretical knowledge, you're ready to hit the road.
+- CKB is essentially a chain of cells which are being created and destroyed over and over again.
+- A cell is a box that can be used to store any type of data.
+- To own a cell and store data on-chain, you need tokens: 1 CKB = 1 Byte.
+- The byte size of the entire cell cannot exceed the value of the capacity field.
+- To protect your cell, you must put a lock on the cell so that only you or someone you authorize can open it.
+- A lock is essentially a piece of code that checks if the cell can be unlocked using arguments and user-provided signatures or proofs.
+- The return value of 0 means that the lock was unlocked successfully, while any other value means the unlock attempt failed.
+- The lock's code_hash and hash_type fields are used to locate code, which is stored in the data field of a dep cell.
+- Each cell can carry two scripts, one is called lock script (default) and the other, type script (optional).
+- In one transaction, the lock scripts run for all inputs by group, while the type scripts run for all inputs and outputs by group.
+- The differences in the execution mechanism result in different uses for the two types of locks. Lock scripts are often used to protect the ownership of the cell. Type scripts often used to handle the cell transformation rules.
+- Constructing a transaction is fundamentally about destroying some cells and creating some new ones.
+- That's right, with the above theoretical knowledge, you're ready to hit the road.
 
 ![alt text](<Screenshot 2026-09-21 at 13.06.30.png>)
