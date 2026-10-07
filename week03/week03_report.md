@@ -129,10 +129,3 @@ Key accomplishments:
 
 Week 3 provided practical experience with CKB Layer 2 payment channels. Setting up dual Fiber nodes, establishing on-chain funding, and executing instant off-chain payments demonstrated how Fiber resolves L1 throughput limitations while preserving CKB's security model.
 
----
-
-## 9. Week 4 Goals
-
-- Test **multi-hop routing** across 3 nodes (`A -> B -> C`).
-- Experiment with **UDT / Stablecoin transfers** over Fiber channels.
-- Integrate Fiber payment APIs with a frontend/dApp using Fiber SDK.
