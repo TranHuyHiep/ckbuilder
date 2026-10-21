@@ -1,81 +1,106 @@
-# Lab 01 — Chuẩn bị môi trường
+# Lab 01 — Set up the server environment
 
-## Mục tiêu
-- Cài đủ công cụ để chạy các ví dụ Perun trên Ethereum local.
-- Clone `perun-examples` và hiểu bố cục repo.
+## Goals
+- Know what the server has and what it lacks.
+- Install Hardhat, test-build the example and the lab code.
+- Understand the layout of `perun-examples` and of the lab code in `week05/code`.
 
-## Hiện trạng máy (đã kiểm tra ngày 2026-10-21)
+This lab only prepares Labs 02–04 (Ethereum). The CKB tooling is installed in Lab 05.
 
-| Công cụ | Trạng thái | Cần cho |
-|---|---|---|
-| `go` | ❌ chưa cài | Lab 01–10 |
-| `node` | ✅ có (Homebrew) | Lab 02–07 |
-| `jq`, `expect` | ✅ có | Lab 10 |
-| `tmux`, `tmuxp` | ❌ chưa cài | Lab 10 |
-| `ckb` | 0.119.0, cần ≥ 0.201.0 | Lab 10 |
-| `ckb-cli` | 1.12.0, cần ≥ 1.13.0 | Lab 10 |
+## Steps
 
-Lab 01 chỉ cần Go và Node. Phần CKB để dành cho Lab 10.
-
-## Các bước
-
-### 1. Cài Go (≥ 1.23)
+### Step 1. Set environment variables (once)
+Open a terminal in VS Code (`` Ctrl+` ``):
 ```sh
-brew install go
-go version        # mong đợi: go1.23.x trở lên
+cat >> ~/.bashrc <<'EOF'
+export PERUN=/root/perun-examples
+export LABS=/root/ckbuilder/week05
+EOF
+source ~/.bashrc
 ```
 
-### 2. Kiểm tra Node (≥ 20)
+### Step 2. Install Hardhat (if missing)
 ```sh
-node --version
-npm --version
+cd $PERUN/payment-channel && npm install
+```
+Takes about 30 seconds and creates about 290 MB of `node_modules`. The warning `npm WARN deprecated uuid@8.3.2` is normal.
+
+### Step 3. Check the whole environment
+```sh
+cd $LABS/code
+./run.sh check
+```
+The script prints the state of each tool and the free disk space, test-builds `payment-channel` and `code/eth`, then prints library versions and the list of examples (the answers to exercises 1–3). The first build takes 1–3 minutes.
+
+Output on the server (2026-10-21), Labs 01–04 part:
+```
+== System
+  ✔ OS                           Ubuntu 26.04.1 LTS aarch64
+  ✔ CPU / RAM                    2 cores / 3.3Gi
+  ✔ Disk / free                  29 GB
+== Labs 01–04 (Ethereum)
+  ✔ go                           go version go1.26.8 linux/arm64
+  ✔ node                         v22.22.1
+  ✔ npm                          9.2.0
+  ✔ perun-examples               /root/perun-examples (6e975e7 Merge pull request #51 ...)
+  ✔ hardhat                      2.29.1
+== Test build
+  ✔ go build                     /root/perun-examples/payment-channel
+  ✔ go build                     /root/ckbuilder/week05/code/eth
+```
+The `✘` lines under Lab 05 (ckb, tmux, riscv…) are expected. Those tools are installed in Lab 05.
+
+### Step 4. See the available commands
+```sh
+./run.sh help
 ```
 
-### 3. Clone repo ví dụ
-```sh
-mkdir -p ~/Documents/CKB/ckbuilder/week05/workspace
-cd ~/Documents/CKB/ckbuilder/week05/workspace
-git clone https://github.com/perun-network/perun-examples.git
-cd perun-examples
+## Where the lab code lives
+All exercises are already coded in `week05/code/`. **You do not need to edit `/root/perun-examples`.**
+
+```
+week05/code/
+├── run.sh              # the only command you need: ./run.sh <lab> [scenario]
+├── eth/                # Labs 02–04, Go module based on payment-channel
+│   ├── client/         #   extended client: Balances, Version, MintForMe, Steal,
+│   │                   #   ForceSettle, Policy, Buggy flag to restore the original bug
+│   ├── demo/           #   chain setup, contract deployment, Alice and Bob
+│   └── cmd/lab02 lab03 lab04
+├── ckb/                # Lab 05, based on payment-channel-ckb + install and devnet scripts
+├── tools/              # check.sh, read_code.sh, txsummary.py (counts on-chain transactions)
+└── logs/               # one log per run (created automatically)
 ```
 
-Một số submodule dùng URL SSH (`git@github.com:...`). Nếu bạn chưa cấu hình SSH key cho GitHub, ép dùng HTTPS cho riêng lệnh này:
-```sh
-git -c url."https://github.com/".insteadOf=git@github.com: submodule update --init --recursive
-```
+For every Ethereum scenario, `run.sh` does four things:
+1. Stops any old Hardhat holding port 8545.
+2. Starts a fresh Hardhat, so balances always start at 10/10.
+3. Runs the Go scenario and saves the log to `code/logs/`.
+4. Reads the Hardhat log, prints a table of on-chain transactions, then stops Hardhat.
 
-### 4. Tải dependency cho payment-channel
-```sh
-cd payment-channel
-npm install          # cài Hardhat
-go mod download      # tải go-perun, perun-eth-backend, go-ethereum
-go build ./...       # build thử, không có lỗi là được
-```
+So **you do not need two terminals**.
 
-### 5. Khám phá bố cục repo
-```sh
-cd ..
-ls
-```
+## Exercises
+All answers come from the output of `./run.sh check`:
+1. Which versions of `go-perun`, `perun-eth-backend` and `go-ethereum` does `payment-channel` use?
+2. Which `go-perun` version does `payment-channel-ckb` use? What is the `replace` line for?
+3. Which blockchain does each `payment-channel-*` directory target?
+4. Open `$PERUN/payment-channel/hardhat.config.js`. Which account belongs to the Deployer, Alice and Bob? (Compare with the constants in `code/eth/demo/demo.go`.)
 
-## Bài tập
-1. Mở `payment-channel/go.mod`. Ghi lại phiên bản của `go-perun`, `perun-eth-backend` và `go-ethereum`.
-2. Mở `payment-channel-ckb/go.mod`. So sánh phiên bản `go-perun` với ví dụ Ethereum. Dòng `replace` ở cuối file dùng để làm gì?
-3. Liệt kê các thư mục `payment-channel-*`. Mỗi thư mục ứng với blockchain nào?
-
-## Câu hỏi kiểm tra
-1. Vì sao go-perun là một module riêng, còn phần Ethereum lại nằm trong `perun-eth-backend`?
-2. `hardhat.config.js` tạo sẵn 3 tài khoản. Vai trò của từng tài khoản là gì?
+## Check questions
+1. Why is go-perun a separate module while the Ethereum part lives in `perun-eth-backend`?
+2. `hardhat.config.js` sets `mining: { auto: true, interval: 5000 }`. What do the two parameters mean?
 
 <details>
-<summary>Gợi ý đáp án</summary>
+<summary>Hints</summary>
 
-1. go-perun được thiết kế **blockchain-agnostic**. Lõi giao thức không biết gì về Ethereum. Mỗi chain có một backend riêng hiện thực các interface `Funder`, `Adjudicator` và `Wallet`, ví dụ perun-eth-backend hay perun-ckb-backend.
-2. Deployer triển khai contract Adjudicator và AssetHolder. Alice và Bob là hai bên của kênh. Mỗi tài khoản có 10 ETH.
-3. Bài tập 2: `replace` trỏ `ckb-sdk-go` sang bản fork của perun-network, vì backend cần các thay đổi chưa có ở bản gốc.
+- **Exercise 1:** go-perun v0.15.0, perun-eth-backend v0.6.0, go-ethereum v1.15.11.
+- **Exercise 2:** pseudo-version `v0.13.1-0.20250528124331-…`, older than v0.15.0. `replace` points `ckb-sdk-go` to perun-network's fork, because the backend needs changes not yet in upstream.
+- **Exercise 3:** `-ckb` CKB, `-ckb-eth` CKB ↔ Ethereum, `-xlm` Stellar, `-dot` Polkadot, `-icp` Internet Computer, `-cc` cross-contract, no suffix is Ethereum.
+- **Exercise 4:** Account #0 `0xe84d…` = Deployer, #1 `0x56FD…` = Alice, #2 `0x6536…` = Bob, 10 ETH each.
+1. go-perun is **blockchain-agnostic**. The protocol core knows nothing about Ethereum. Each chain has a backend implementing the `Funder`, `Adjudicator` and `Wallet` interfaces.
+2. `auto: true` mines immediately whenever a transaction arrives. `interval: 5000` also mines an empty block every 5 seconds, so chain time keeps moving (needed for the challenge duration in Lab 04).
 </details>
 
 ## Checklist
-- [ ] `go version` ≥ 1.23
-- [ ] `go build ./...` trong `payment-channel` không lỗi
-- [ ] Đã trả lời 3 bài tập
+- [ ] `./run.sh check` shows ✔ for everything under Labs 01–04
+- [ ] Answered the 4 exercises

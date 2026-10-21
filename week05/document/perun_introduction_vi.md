@@ -40,7 +40,7 @@ Perun hỗ trợ cả **payment channel** (chỉ theo dõi số dư) và **state
 
 | Tính năng | Ý nghĩa |
 |---|---|
-| **Ảo hóa state channel** | Các kênh có sẵn có thể ghép lại thành **kênh ảo**. Hai người không có kênh trực tiếp vẫn giao dịch được qua bên trung gian. Kênh ảo được mở và đóng **hoàn toàn off-chain**. *Tài liệu ghi rõ tính năng này chưa được triển khai.* |
+| **Ảo hóa state channel** | Các kênh có sẵn có thể ghép lại thành **kênh ảo**. Hai người không có kênh trực tiếp vẫn giao dịch được qua bên trung gian. Kênh ảo được mở và đóng **hoàn toàn off-chain**. *Trang perun-doc ghi là chưa triển khai, nhưng go-perun v0.15.0 đã có (`client/virtual_channel.go`).* |
 | **Không phụ thuộc blockchain** | Thiết kế dạng module cho phép tích hợp với **bất kỳ blockchain nào**, kể cả sổ cái truyền thống. |
 | **Khả năng liên thông** | Thiết kế không phụ thuộc chuỗi cộng với ảo hóa cho phép giao dịch và chạy smart contract **xuyên chuỗi (cross-chain)**. Các phần logging, messaging, persistence có thể tùy biến. |
 | **Bảo mật cao** | Đặc tả giao thức đã được **chứng minh toán học** là an toàn bằng các phương pháp nghiên cứu hiện đại. |
@@ -89,17 +89,31 @@ Perun Framework gồm **ba thành phần phần mềm chính**:
    - **mở, giao dịch và tất toán** kênh.
 
 ### Trạng thái hiện tại
-| Thành phần | Trạng thái |
+Bảng dưới là nội dung trang perun-doc (đã cũ):
+
+| Thành phần | Trạng thái theo perun-doc |
 |---|---|
 | go-perun SDK | **State channel tổng quát đầy đủ trên Ethereum**, có persistence |
 | perun-node | **Payment channel hai bên**, ID provider dạng file cục bộ, giao diện **gRPC** |
 | perun-nodecli | Client tham chiếu cho gRPC API của perun-node, CLI tương tác có tự hoàn thành lệnh |
 
-### Lộ trình (Roadmap)
-1. Kênh ảo (virtual channels)
+Đối chiếu với mã nguồn đang dùng trên server (`/root/perun-examples`, kiểm tra ngày 2026-10-21):
+
+| Hạng mục | Thực tế |
+|---|---|
+| Phiên bản go-perun | **v0.15.0** (ví dụ Ethereum). Ví dụ CKB dùng bản pseudo-version `v0.13.1-0.20250528…` |
+| Kênh ảo | **Đã có** trong go-perun (`client/virtual_channel.go`, có test) |
+| Backend blockchain | Ethereum (`perun-eth-backend` v0.6.0), **CKB** (`perun-ckb-backend`), Stellar, Polkadot, ICP, và ví dụ xuyên chuỗi CKB ↔ ETH (`payment-channel-ckb-eth`) |
+| Contract Ethereum | `perun-eth-backend` nhúng sẵn binding của `perun-eth-contracts`. Ví dụ payment-channel gọi `DeployAdjudicator` và `DeployETHAssetholder`, không cần clone repo contract |
+| Contract CKB | `perun-ckb-contract` (Rust, RISC-V): PCLS, PCTS, PFLS, vchannel, sample-udt |
+| Chain local | **Hardhat 2.29.1** thay cho `ganache-cli` trong tài liệu cũ |
+| API | `ch.Update(...)` thay cho `UpdateBy`, địa chỉ dạng `map[wallet.BackendID]...` |
+
+### Lộ trình (Roadmap) theo perun-doc
+1. Kênh ảo (virtual channels): **đã xong** trong go-perun
 2. Tích hợp SSI (danh tính tự chủ) với Hyperledger Aries
-3. Thêm các blockchain backend khác
-4. Kênh xuyên chuỗi (cross-chain channels)
+3. Thêm các blockchain backend khác: **đã có** CKB, Stellar, Polkadot, ICP
+4. Kênh xuyên chuỗi (cross-chain channels): có ví dụ `payment-channel-ckb-eth` và `multiledger-channel`
 
 ---
 
@@ -108,6 +122,7 @@ Perun Framework gồm **ba thành phần phần mềm chính**:
 - Perun là một **framework kênh Layer-2**: khóa tiền on-chain một lần, giao dịch off-chain nhiều lần, tất toán on-chain một lần.
 - An toàn nhờ việc **trạng thái off-chain luôn có thể được cưỡng chế on-chain**.
 - Điểm khác biệt chính là **kênh ảo** và **không phụ thuộc blockchain**.
+- Trên CKB, kênh là một nhóm cell: **channel cell** (PCLS + PCTS) giữ trạng thái, các **funds cell** (PFLS) giữ tiền.
 - Kiến trúc phần mềm đi từ chuỗi lên người dùng: **contracts → go-perun SDK → perun-node**.
 
 ## 5. Thuật ngữ
@@ -122,6 +137,7 @@ Perun Framework gồm **ba thành phần phần mềm chính**:
 | Settle | Kết thúc kênh và chi trả số dư cuối cùng trên chuỗi |
 
 ## 6. Đọc thêm
+- **Thực hành:** [5 bài lab Perun trên server](../labs/README.md)
 - Trang tiếp theo trong tài liệu: [Concepts: State Channels](https://hyperledger-labs.github.io/perun-doc/concepts/state-channel.html)
 - [Protocols](https://hyperledger-labs.github.io/perun-doc/concepts/protocols.html)
-- GitHub: [go-perun](https://github.com/hyperledger-labs/go-perun), [perun-node](https://github.com/hyperledger-labs/perun-node), [perun-eth-contracts](https://github.com/hyperledger-labs/perun-eth-contracts)
+- GitHub: [go-perun](https://github.com/hyperledger-labs/go-perun), [perun-node](https://github.com/hyperledger-labs/perun-node), [perun-eth-contracts](https://github.com/hyperledger-labs/perun-eth-contracts), [perun-examples](https://github.com/perun-network/perun-examples), [perun-ckb-contract](https://github.com/perun-network/perun-ckb-contract), [perun-ckb-backend](https://github.com/perun-network/perun-ckb-backend)

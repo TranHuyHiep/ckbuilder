@@ -40,7 +40,7 @@ Both **payment channels** (only balances) and **state channels** (arbitrary app 
 
 | Feature | Meaning |
 |---|---|
-| **State-channel virtualization** | Existing channels can be combined into **virtual channels**. Two users without a direct channel can still transact through intermediaries. Virtual channels open and close **fully off-chain**. *The doc says this is not yet implemented.* |
+| **State-channel virtualization** | Existing channels can be combined into **virtual channels**. Two users without a direct channel can still transact through intermediaries. Virtual channels open and close **fully off-chain**. *perun-doc says this is not yet implemented, but go-perun v0.15.0 has it (`client/virtual_channel.go`).* |
 | **Blockchain-agnostic** | A modular design lets Perun plug into **any blockchain** or even a traditional ledger. |
 | **Interoperability** | Agnostic design plus virtualization enables **cross-chain** transactions and smart contract execution. Logging, messaging and persistence can be customized. |
 | **High security** | The protocol specifications are **mathematically proven** secure with modern research methods. |
@@ -89,17 +89,31 @@ The Perun Framework has **three main software components**:
    - **open, transact in, and settle** channels.
 
 ### Current status
-| Component | Status |
+The table below is what the perun-doc page says (outdated):
+
+| Component | Status according to perun-doc |
 |---|---|
 | go-perun SDK | Fully generalized **state channels on Ethereum**, with persistence |
 | perun-node | **Two-party payment channels**, local file-based ID provider, **gRPC** interface |
 | perun-nodecli | Reference client for the perun-node gRPC API, interactive CLI with auto-completion |
 
-### Roadmap
-1. Virtual channels
+Compared with the code used on the server (`/root/perun-examples`, checked 2026-10-21):
+
+| Item | Actual |
+|---|---|
+| go-perun version | **v0.15.0** (Ethereum example). The CKB example uses pseudo-version `v0.13.1-0.20250528…` |
+| Virtual channels | **Implemented** in go-perun (`client/virtual_channel.go`, with tests) |
+| Blockchain backends | Ethereum (`perun-eth-backend` v0.6.0), **CKB** (`perun-ckb-backend`), Stellar, Polkadot, ICP, plus a CKB ↔ ETH cross-chain example (`payment-channel-ckb-eth`) |
+| Ethereum contracts | `perun-eth-backend` embeds bindings of `perun-eth-contracts`. The payment-channel example calls `DeployAdjudicator` and `DeployETHAssetholder`, no need to clone the contracts repo |
+| CKB contracts | `perun-ckb-contract` (Rust, RISC-V): PCLS, PCTS, PFLS, vchannel, sample-udt |
+| Local chain | **Hardhat 2.29.1** instead of `ganache-cli` from the old docs |
+| API | `ch.Update(...)` instead of `UpdateBy`, addresses as `map[wallet.BackendID]...` |
+
+### Roadmap according to perun-doc
+1. Virtual channels: **done** in go-perun
 2. SSI (Self-Sovereign Identity) integration with Hyperledger Aries
-3. More blockchain backends
-4. Cross-chain channels
+3. More blockchain backends: CKB, Stellar, Polkadot, ICP **available**
+4. Cross-chain channels: see examples `payment-channel-ckb-eth` and `multiledger-channel`
 
 ---
 
@@ -122,6 +136,7 @@ The Perun Framework has **three main software components**:
 | Settle | Finalize a channel and pay out the final balances on-chain |
 
 ## 6. Further Reading
+- **Hands-on:** [5 Perun labs on the server](../labs/README.md) (Vietnamese)
 - Next page in the docs: [Concepts: State Channels](https://hyperledger-labs.github.io/perun-doc/concepts/state-channel.html)
 - [Protocols](https://hyperledger-labs.github.io/perun-doc/concepts/protocols.html)
-- GitHub: [go-perun](https://github.com/hyperledger-labs/go-perun), [perun-node](https://github.com/hyperledger-labs/perun-node), [perun-eth-contracts](https://github.com/hyperledger-labs/perun-eth-contracts)
+- GitHub: [go-perun](https://github.com/hyperledger-labs/go-perun), [perun-node](https://github.com/hyperledger-labs/perun-node), [perun-eth-contracts](https://github.com/hyperledger-labs/perun-eth-contracts), [perun-examples](https://github.com/perun-network/perun-examples), [perun-ckb-contract](https://github.com/perun-network/perun-ckb-contract), [perun-ckb-backend](https://github.com/perun-network/perun-ckb-backend)
