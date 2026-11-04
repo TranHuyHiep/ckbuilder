@@ -1,0 +1,82 @@
+{
+  "level": "danger",
+  "summary": {
+    "hash": "0x3b9d4a4f62eea63a0e8c254dd31d344dc1cf8ca0f6428a667ad4d0f139b69e2f",
+    "status": "unsigned",
+    "explorerUrl": "https://testnet.explorer.nervos.org/transaction/0x3b9d4a4f62eea63a0e8c254dd31d344dc1cf8ca0f6428a667ad4d0f139b69e2f",
+    "kinds": [
+      "ckb_transfer"
+    ],
+    "fee": "0.00000415",
+    "feeShannons": "415",
+    "inputCount": 2,
+    "outputCount": 2,
+    "parties": [
+      {
+        "lockHash": "0x134fa84b35a85d00401650ac6aacd54d38d119eb827ef7d0a8dc92a321adab64",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqt2yx7pkuk3ue203ck76sqvl7jxqa2ff3sn43zg5",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "-100.00000415",
+        "ckbDeltaShannons": "-10000000415",
+        "udtDeltas": []
+      },
+      {
+        "lockHash": "0xb4da2320d06199bf8bbfe62685fc114992820b11d12e5983477825e6d8788fca",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6f4m0q",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "100",
+        "ckbDeltaShannons": "10000000000",
+        "udtDeltas": []
+      }
+    ],
+    "udtSupplyChanges": [],
+    "spores": [],
+    "dao": {
+      "deposits": 0,
+      "withdrawRequests": 0,
+      "claims": 0
+    },
+    "rgbpp": [],
+    "unknownScripts": []
+  },
+  "scripts": [
+    {
+      "codeHash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+      "hashType": "type",
+      "role": "lock",
+      "official": "Secp256k1Blake160",
+      "usedBy": 4,
+      "executed": true,
+      "mutability": "immutable",
+      "reason": "Referenced by type hash, but the code cell's lock is burned, so nobody can upgrade it."
+    }
+  ],
+  "findings": [
+    {
+      "code": "unsigned",
+      "level": "info",
+      "message": "This transaction has no signatures yet."
+    },
+    {
+      "code": "burned_lock_output",
+      "level": "danger",
+      "message": "100 CKB goes to a burned lock; it can never be spent."
+    }
+  ],
+  "signer": {
+    "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqt2yx7pkuk3ue203ck76sqvl7jxqa2ff3sn43zg5",
+    "ckbDelta": "-100.00000415",
+    "ckbDeltaShannons": "-10000000415",
+    "udtDeltas": [],
+    "receivers": [
+      {
+        "lockHash": "0xb4da2320d06199bf8bbfe62685fc114992820b11d12e5983477825e6d8788fca",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqgqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6f4m0q",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "100",
+        "ckbDeltaShannons": "10000000000",
+        "udtDeltas": []
+      }
+    ]
+  }
+}
