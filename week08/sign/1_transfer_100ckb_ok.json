@@ -1,0 +1,78 @@
+{
+  "level": "ok",
+  "summary": {
+    "hash": "0xa1b70430a2ded4b29c84df9e51df26c75630f17d3819b21a64c1aa9d280ae1f6",
+    "status": "unsigned",
+    "explorerUrl": "https://testnet.explorer.nervos.org/transaction/0xa1b70430a2ded4b29c84df9e51df26c75630f17d3819b21a64c1aa9d280ae1f6",
+    "kinds": [
+      "ckb_transfer"
+    ],
+    "fee": "0.00000371",
+    "feeShannons": "371",
+    "inputCount": 1,
+    "outputCount": 2,
+    "parties": [
+      {
+        "lockHash": "0x659676e9e17576ad828969375ea30531a987b6ae563066a5a3c86312bdf45672",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsq2tu2x3nscv26nsmz5z6a6fe50sk8kapqge4yqyh",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "-100.00000371",
+        "ckbDeltaShannons": "-10000000371",
+        "udtDeltas": []
+      },
+      {
+        "lockHash": "0x25ab596db91f735dc9fff972e49a500ea5ca107846c047f75c10b9f841bcd824",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqtsas70dvtztsndexpc3xcynehcpe4wphsnlg9fm",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "100",
+        "ckbDeltaShannons": "10000000000",
+        "udtDeltas": []
+      }
+    ],
+    "udtSupplyChanges": [],
+    "spores": [],
+    "dao": {
+      "deposits": 0,
+      "withdrawRequests": 0,
+      "claims": 0
+    },
+    "rgbpp": [],
+    "unknownScripts": []
+  },
+  "scripts": [
+    {
+      "codeHash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+      "hashType": "type",
+      "role": "lock",
+      "official": "Secp256k1Blake160",
+      "usedBy": 3,
+      "executed": true,
+      "mutability": "immutable",
+      "reason": "Referenced by type hash, but the code cell's lock is burned, so nobody can upgrade it."
+    }
+  ],
+  "findings": [
+    {
+      "code": "unsigned",
+      "level": "info",
+      "message": "This transaction has no signatures yet."
+    }
+  ],
+  "signer": {
+    "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsq2tu2x3nscv26nsmz5z6a6fe50sk8kapqge4yqyh",
+    "ckbDelta": "-100.00000371",
+    "ckbDeltaShannons": "-10000000371",
+    "udtDeltas": [],
+    "receivers": [
+      {
+        "lockHash": "0x25ab596db91f735dc9fff972e49a500ea5ca107846c047f75c10b9f841bcd824",
+        "address": "ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqtsas70dvtztsndexpc3xcynehcpe4wphsnlg9fm",
+        "lockName": "Secp256k1Blake160",
+        "ckbDelta": "100",
+        "ckbDeltaShannons": "10000000000",
+        "udtDeltas": []
+      }
+    ]
+  },
+  "tokens": {}
+}
