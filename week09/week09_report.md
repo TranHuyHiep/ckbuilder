@@ -6,7 +6,7 @@
 
 ---
 
-## 1. Summary
+## Summary
 
 Weeks 6 to 8 built the checks. This week I made the bot something that can run unattended and be used in more than one language, and I prepared a way to measure the free-text `/ask` path. Every number in the replies still comes from code, not from the LLM.
 
@@ -21,7 +21,7 @@ Weeks 6 to 8 built the checks. This week I made the bot something that can run u
 
 ---
 
-## 2. Evidence
+## Evidence
 
 | # | Case | Result | Evidence |
 |---|---|---|---|
@@ -45,7 +45,7 @@ Weeks 6 to 8 built the checks. This week I made the bot something that can run u
 
 ---
 
-## 3. Key Learnings
+## Key Learnings
 
 - **My first check was empty.** I tested "token decimals" on a transaction whose net token change was zero, so no token was shown and the check passed for the wrong reason. I only saw it when I printed the output. I then searched mainnet for real tokens and re-ran. A passing check needs a case that could fail.
 - **A real run found a bug that tests did not.** In the Chinese `/sign` output, the script type still read "lock" in English. Unit tests covered the template, but not this parameter. I fixed it and added a test.
@@ -54,20 +54,6 @@ Weeks 6 to 8 built the checks. This week I made the bot something that can run u
 - **Keep the translation next to the data.** Findings keep their English text, and carry a code plus values. That let me translate them without parsing sentences, and English output stayed exactly as before.
 - **Persist small state simply.** One bot process and a few hundred bytes do not need a database. An atomic file write (write temp file, rename) is enough, and a corrupt file must never stop the bot.
 
----
-
-## 4. Challenges
-
-| Challenge | Solution |
-|---|---|
-| The server's default Node is 18; `vitest` needs Node 22 and failed with `styleText` not exported | Used Node 22 from nvm for tests; the systemd unit points to that Node |
-| `.env` was set to testnet but the eval and the fixtures use mainnet | `npm run eval` refuses to run unless `CKB_NETWORK=mainnet`; the bot is now set to mainnet |
-| Adding a field to the summaries could have changed old snapshots | Token info is added only when found, so existing snapshots were unchanged |
-| Step count per eval question is shared between workers | The runner notes that steps are exact only with `--concurrency 1` |
-| A shell command I ran while checking `.env` printed the Telegram bot token to my terminal | Not shared elsewhere. Rotating the token in BotFather is still advisable if this output was ever shared |
-
-
----
 
 ## 6. Reflection
 
