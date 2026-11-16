@@ -55,6 +55,6 @@ Weeks 6 to 8 built the checks. This week I made the bot something that can run u
 - **Persist small state simply.** One bot process and a few hundred bytes do not need a database. An atomic file write (write temp file, rename) is enough, and a corrupt file must never stop the bot.
 
 
-## 6. Reflection
+## Reflection
 
 Most of this week's work was easy to write and easy to get wrong without noticing. The two mistakes I caught (an empty token check and a wrong eval expectation) were both mine, and both looked like success at first. I will keep one rule: before saying something works, show the output that would have looked different if it did not.
