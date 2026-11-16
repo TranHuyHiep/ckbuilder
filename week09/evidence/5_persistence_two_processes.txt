@@ -1,0 +1,17 @@
+# Limit set to 2 commands/day for this test. Same user id 7, two separate processes.
+--- process 1
+语言已设为 zh。
+command 1 -> 用法错误：invalid tx_hash。发送 /help 查看示例。
+command 2 -> 用法错误：invalid tx_hash。发送 /help 查看示例。
+command 3 -> 今日 2 次查询额度已用完，请明天（UTC）再试。
+/help starts with: /tx &lt;交易哈希&gt; — 解读一笔交易
+
+--- process 2 (a restart)
+command 1 -> 今日 2 次查询额度已用完，请明天（UTC）再试。
+command 2 -> 今日 2 次查询额度已用完，请明天（UTC）再试。
+command 3 -> 今日 2 次查询额度已用完，请明天（UTC）再试。
+/help starts with: /tx &lt;交易哈希&gt; — 解读一笔交易
+
+--- files on disk
+langs.json: {"7":"zh"}
+quota.json: {"day":"2026-11-16","used":{"command:7":2}}

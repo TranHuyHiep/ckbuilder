@@ -1,0 +1,32 @@
+# /tx before (raw units, no info cell lookup) vs after (decimals + symbol), mainnet tx 0x4373f2737e4267bc22f0ca3dbdf6ce875c545375161f782eae15683777b4e7df
+
+## BEFORE
+Transaction 0x4373f273…77b4e7df
+Type: Token transfer, RGB++ (bound to Bitcoin)
+Status: committed · block 12625882 · 2024-04-04T07:10:15.769Z
+Fee: 0.0007293 CKB
+
+Balance changes (253 parties)
+• ckb1qzda…epzg3u (Secp256k1Blake160): -63500.0007293 CKB
+• ckb1qz7x…d55xht (RgbppLock): -254 CKB · xudt 0x178f…a0a7 -725000000000000
+• ckb1qz7x…dc2ywe (RgbppLock): +254 CKB · xudt 0x178f…a0a7 +100000000000
+
+## AFTER
+Transaction 0x4373f273…77b4e7df
+Type: Token transfer, RGB++ (bound to Bitcoin)
+Status: committed · block 12625882 · 2024-04-04T07:10:15.769Z
+Fee: 0.0007293 CKB
+
+Balance changes (253 parties)
+• ckb1qzda…epzg3u (Secp256k1Blake160): -63500.0007293 CKB
+• ckb1qz7x…d55xht (RgbppLock): -254 CKB · -7250000 Seal
+• ckb1qz7x…dc2ywe (RgbppLock): +254 CKB · +1000 Seal
+
+# /addr ckb1qrgqep8saj8agswr30pls73hra28ry8jlnlc3ejzh3dl2ju7xxpjxqgqq89ugnzfgfrgzyjx87nr5wmkthrjw6vygcmxz4g5
+Address ckb1qrgqep…gcmxz4g5
+Lock: JoyId
+Total: 868.99894316 CKB
+Free: 724.99894316 CKB
+
+Tokens
+• RGB++ Protocol 0xb5fd…717d: 1000 RGB++

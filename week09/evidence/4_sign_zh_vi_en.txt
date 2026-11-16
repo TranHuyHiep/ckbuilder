@@ -1,0 +1,80 @@
+===== 0x3bf053709d74a8482e2cebc40e1499d5fc137622543858eed420c132260ff498 lang=zh
+🔴 除非看懂红色项，否则不要签名
+
+这笔交易做了什么
+类型: 包含未识别的脚本, CKB 转账
+网络手续费：0.01 CKB
+• ckb1qqcr…dzm4fw: -3520.11494253 CKB
+• ckb1qzda…gvagwh: +17.94977012 CKB
+• ckb1qpw9…ggwawq: +3160.91954024 CKB
+• ckb1qzda…3sma2z: +341.23563217 CKB
+提供你的地址即可从你的角度查看。
+
+合约
+• 锁 0x303e…3078: ⚠️ 未识别, 代码可被更改
+   可由以下地址更改 ckb1qpw9…ggwawq
+• 类型 0x6c1d…bf39: ⚠️ 未识别, 代码可被更改
+   可由以下地址更改 ckb1qpw9…ggwawq
+• 锁 0x9bd7…cce8: Secp256k1Blake160 （官方）, 代码固定
+• 锁 0x5c50…e2a8: Secp256k1Multisig （官方）, 仅保护输出，未检查代码
+
+检查结果
+🔴 输入 0x84e9989e…1dd9:2 已被花费，此交易会被拒绝。
+🔴 输入 0x294af67c…ef4f:0 已被花费，此交易会被拒绝。
+🔴 输入 0x294af67c…ef4f:2 已被花费，此交易会被拒绝。
+🔴 未识别的 锁 脚本 0x303ead37…123078（type）可被 ckb1qpw9q60tppt7l3j7r09qcp7lxnp3vcanvgha8pmvsa3jplykxn32sqgwvhnrqkx9ka45f2cnc90fy30m3scpupqggwawq 替换，签名后其行为可能改变。
+🔴 未识别的 类型 脚本 0x6c1d69a3…53bf39（type）可被 ckb1qpw9q60tppt7l3j7r09qcp7lxnp3vcanvgha8pmvsa3jplykxn32sqgwvhnrqkx9ka45f2cnc90fy30m3scpupqggwawq 替换，签名后其行为可能改变。
+
+以上为链上数据计算出的事实，不是建议。由你的钱包签名；本工具不接触私钥。
+
+===== 0x058cf8fd6e25d3e39e2abff7216c0d2edfdca119663cd6e08bc431a42ff07770 lang=vi
+🔴 Đừng ký nếu bạn chưa hiểu các mục màu đỏ
+
+Giao dịch này làm gì
+Loại: Mint token, Chứa script không nhận diện được
+Phí mạng: 0.00002228 CKB
+• ckb1qpw9…crwlcr: +0 CKB
+• ckb1qzfm…x9cjwr: +0 CKB
+• ckb1qzfm…8se89r: +0 CKB
+• ckb1qzda…udafpe: -800.00002228 CKB
+• ckb1qzl5…zjr5m8: +800 CKB
+Gửi kèm địa chỉ của bạn để xem từ phía bạn.
+
+Hợp đồng (script)
+• lock 0x5c50…e2a8: Secp256k1Multisig (chính thức), code cố định
+• lock 0x93bc…1789: ⚠️ không nhận diện được, code có thể bị thay đổi
+   có thể thay đổi bởi ckb1qpw9…x54vlm
+• lock 0x9bd7…cce8: Secp256k1Blake160 (chính thức), code cố định
+• lock 0xbf43…febc: PWLock (chính thức), chỉ bảo vệ output, chưa kiểm tra code
+• type 0x5e7a…cfd5: SUdt (chính thức), code cố định
+
+Phát hiện
+🔴 Input 0x95ebd200…c7b6:0 đã bị tiêu, nên giao dịch này sẽ bị từ chối.
+🔴 Input 0x95ebd200…c7b6:1 đã bị tiêu, nên giao dịch này sẽ bị từ chối.
+🔴 Input 0x95ebd200…c7b6:2 đã bị tiêu, nên giao dịch này sẽ bị từ chối.
+🔴 Input 0x95ebd200…c7b6:3 đã bị tiêu, nên giao dịch này sẽ bị từ chối.
+🔴 Script lock 0x93bc7a91…691789 (type) không nhận diện được và có thể bị ckb1qpw9q60tppt7l3j7r09qcp7lxnp3vcanvgha8pmvsa3jplykxn32sqg5hymdq8fuc08ew9wdcqfv5hwa9xe5qrqx54vlm thay thế. Hành vi của nó có thể đổi sau khi bạn ký.
+ℹ️ Token sudt 0x6aba94f3…1b60e9 được mint: tạo thêm 93070000000000000000 đơn vị gốc.
+ℹ️ Token sudt 0xf285b1f4…91a706 được mint: tạo thêm 1040700000 đơn vị gốc.
+
+Dữ kiện tính từ dữ liệu on-chain, không phải lời khuyên. Ví của bạn ký; công cụ này không bao giờ thấy khóa.
+
+===== 0x7dbb728957db80b41999a5781489f6a137c9a3c315ef10627f7c18601a12107d lang=en
+🔴 Do not sign unless you understand the red items
+
+What this transaction does
+Type: Nervos DAO claim (phase 2)
+Network fee: 0.00000936 CKB
+• ckb1qzda…ccyn4q: +2447.18365693 CKB
+Pass your address to see this from your side.
+
+Contracts
+• lock 0x9bd7…cce8: Secp256k1Blake160 (official), code is fixed
+• type 0x82d7…3f2e: NervosDao (official), code is fixed
+
+Findings
+🔴 Input 0x5f1efa75…b8e0:0 is already spent, so this transaction would be rejected.
+ℹ️ 1 Nervos DAO claim(s) (phase 2) including 2447.18366629 CKB compensation.
+
+Facts computed from chain data, not advice. Your wallet signs; this tool never sees keys.
+

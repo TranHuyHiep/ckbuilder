@@ -1,0 +1,21 @@
+# systemd: install, graceful restart, kill -9, automatic restart
+2026-11-16T10:13:28+01:00 vmi3395567 systemd[1]: Started ckb-analyst-bot.service - CKB Chain Analyst Telegram bot.
+2026-11-16T10:13:33+01:00 vmi3395567 node[3148885]: connected to CKB mainnet, tip block 21027226
+2026-11-16T10:13:33+01:00 vmi3395567 node[3148885]: bot started (no LLM configured: commands only)
+2026-11-16T10:13:43+01:00 vmi3395567 systemd[1]: Stopping ckb-analyst-bot.service - CKB Chain Analyst Telegram bot...
+2026-11-16T10:13:43+01:00 vmi3395567 node[3148885]: SIGTERM received, stopping
+2026-11-16T10:13:43+01:00 vmi3395567 systemd[1]: ckb-analyst-bot.service: Deactivated successfully.
+2026-11-16T10:13:43+01:00 vmi3395567 systemd[1]: Stopped ckb-analyst-bot.service - CKB Chain Analyst Telegram bot.
+2026-11-16T10:13:43+01:00 vmi3395567 systemd[1]: Started ckb-analyst-bot.service - CKB Chain Analyst Telegram bot.
+2026-11-16T10:13:46+01:00 vmi3395567 node[3149931]: connected to CKB mainnet, tip block 21027229
+2026-11-16T10:13:47+01:00 vmi3395567 node[3149931]: bot started (no LLM configured: commands only)
+2026-11-16T10:13:49+01:00 vmi3395567 systemd[1]: ckb-analyst-bot.service: Main process exited, code=killed, status=9/KILL
+2026-11-16T10:13:49+01:00 vmi3395567 node[3149931]: SIGTERM received, stopping
+2026-11-16T10:13:52+01:00 vmi3395567 systemd[1]: ckb-analyst-bot.service: Failed with result 'signal'.
+2026-11-16T10:13:57+01:00 vmi3395567 systemd[1]: ckb-analyst-bot.service: Scheduled restart job, restart counter is at 1.
+2026-11-16T10:13:57+01:00 vmi3395567 systemd[1]: Started ckb-analyst-bot.service - CKB Chain Analyst Telegram bot.
+2026-11-16T10:14:00+01:00 vmi3395567 node[3150837]: connected to CKB mainnet, tip block 21027231
+2026-11-16T10:14:00+01:00 vmi3395567 node[3150837]: bot started (no LLM configured: commands only)
+
+active
+enabled
