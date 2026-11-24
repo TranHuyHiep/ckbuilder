@@ -1,0 +1,70 @@
+=== A (en)
+🟡 Review before signing
+
+What this transaction does
+Type: CKB transfer
+Network fee: 0.001 CKB
+• ckb1qzda…kqm373: -500.001 CKB
+• ckb1qzda…0szp0w: +500 CKB
+Pass your address to see this from your side.
+
+Contracts
+• lock 0x9bd7…cce8: Secp256k1Blake160 (official), upgradability unknown
+
+Findings
+🟡 500 CKB goes to ckb1qzda0c…0szp0w, which has no transaction history on chain. Check the address: a typo would lose the funds.
+🟡 lock script 0x9bd7e06f…a3cce8 runs in this transaction but its code is not in the cell deps, so the transaction would likely be rejected.
+
+Facts computed from chain data, not advice. Your wallet signs; this tool never sees keys.
+=== A (zh)
+🟡 签名前请仔细检查
+
+这笔交易做了什么
+类型: CKB 转账
+网络手续费：0.001 CKB
+• ckb1qzda…kqm373: -500.001 CKB
+• ckb1qzda…0szp0w: +500 CKB
+提供你的地址即可从你的角度查看。
+
+合约
+• 锁 0x9bd7…cce8: Secp256k1Blake160 （官方）, 是否可升级未知
+
+检查结果
+🟡 500 CKB 将转给 ckb1qzda0c…0szp0w，该地址链上没有任何交易记录。请核对地址：输错将导致资金丢失。
+🟡 锁 脚本 0x9bd7e06f…a3cce8 会在此交易中运行，但其代码不在 cell deps 中，交易很可能被拒绝。
+
+以上为链上数据计算出的事实，不是建议。由你的钱包签名；本工具不接触私钥。
+=== B (en)
+🟡 Review before signing
+
+What this transaction does
+Type: CKB transfer
+Network fee: 0.001 CKB
+• ckb1qzda…kqm373: -0.001 CKB
+Pass your address to see this from your side.
+
+Contracts
+• lock 0x9bd7…cce8: Secp256k1Blake160 (official), upgradability unknown
+
+Findings
+🟡 Input 0xf221d2b1…858e:1 is time-locked: it can only be spent from block 99999999. The network rejects this transaction until then.
+🟡 lock script 0x9bd7e06f…a3cce8 runs in this transaction but its code is not in the cell deps, so the transaction would likely be rejected.
+
+Facts computed from chain data, not advice. Your wallet signs; this tool never sees keys.
+=== B (zh)
+🟡 签名前请仔细检查
+
+这笔交易做了什么
+类型: CKB 转账
+网络手续费：0.001 CKB
+• ckb1qzda…kqm373: -0.001 CKB
+提供你的地址即可从你的角度查看。
+
+合约
+• 锁 0x9bd7…cce8: Secp256k1Blake160 （官方）, 是否可升级未知
+
+检查结果
+🟡 输入 0xf221d2b1…858e:1 被时间锁定：只能从区块 99999999 起花费，在此之前网络会拒绝该交易。
+🟡 锁 脚本 0x9bd7e06f…a3cce8 会在此交易中运行，但其代码不在 cell deps 中，交易很可能被拒绝。
+
+以上为链上数据计算出的事实，不是建议。由你的钱包签名；本工具不接触私钥。

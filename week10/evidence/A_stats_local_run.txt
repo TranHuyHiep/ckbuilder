@@ -1,0 +1,31 @@
+non-admin /stats: <b>CKB Chain Analyst</b> ...(help text)
+
+admin /stats:
+Usage stats (UTC)
+
+Last 24 hours: 7 messages from 3 users
+  commands: tx 3, addr 1, dao 1
+  kinds: command 5, help 1, stats 1
+  languages: en 3, vi 2, zh 2
+  errors: 1 (usage 1)
+  latency of lookups: p50 727 ms, p90 1861 ms
+
+Last 7 days: 7 messages from 3 users
+  commands: tx 3, addr 1, dao 1
+  kinds: command 5, help 1, stats 1
+  languages: en 3, vi 2, zh 2
+  errors: 1 (usage 1)
+  latency of lookups: p50 727 ms, p90 1861 ms
+
+Cache since the bot started: 1 hits, 3 misses (25% hit)
+
+raw event file (what is stored):
+{"t":1795505586794,"user":"fcda1482e32c","kind":"command","cmd":"tx","lang":"en","ok":true,"ms":1861}
+{"t":1795505586807,"user":"fcda1482e32c","kind":"command","cmd":"tx","lang":"en","ok":true,"ms":0}
+{"t":1795505587776,"user":"2679452ca018","kind":"command","cmd":"addr","lang":"vi","ok":true,"ms":969}
+{"t":1795505588503,"user":"2679452ca018","kind":"command","cmd":"dao","lang":"vi","ok":true,"ms":727}
+{"t":1795505588504,"user":"4e41a8ac6abd","kind":"command","cmd":"tx","lang":"zh","ok":false,"err":"usage","ms":1}
+{"t":1795505588504,"user":"4e41a8ac6abd","kind":"help","lang":"zh","ok":true,"ms":0}
+{"t":1795505588504,"user":"fcda1482e32c","kind":"stats","lang":"en","ok":true,"ms":0}
+{"t":1795505588506,"user":"45a6e9f889fa","kind":"stats","lang":"en","ok":true,"ms":1}
+

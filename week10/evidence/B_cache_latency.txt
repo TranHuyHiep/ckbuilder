@@ -1,0 +1,14 @@
+## CKB_CACHE=off (every call hits the chain)
+decode_tx: first 1910 ms, repeat 930 ms, identical=true
+address_profile: first 348 ms, repeat 336 ms, identical=true
+dao_status: first 521 ms, repeat 339 ms, identical=true
+stats { hits: 0, misses: 0 }
+
+## cache on
+decode_tx: first 1848 ms, repeat 0 ms, identical=true
+address_profile: first 362 ms, repeat 0 ms, identical=true
+dao_status: first 524 ms, repeat 0 ms, identical=true
+stats { hits: 3, misses: 3 }
+
+Note: "Terminated" is only my 90 s timeout stopping the script, whose RPC client keeps the process alive; all results were printed before it.
+Tool outputs are compared as JSON strings (identical=true). Network latency varies between runs (public RPC): first-call numbers differ by run, repeat numbers are cache hits.

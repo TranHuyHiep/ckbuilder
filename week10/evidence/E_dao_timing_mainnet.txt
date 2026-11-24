@@ -1,0 +1,32 @@
+tip block 21095655, epoch 15352 1094/1559
+
+--- en
+Nervos DAO · tip epoch 15352.70
+In DAO: 130000 CKB · compensation so far 57.09318681 CKB
+
+• deposited 130000 CKB since 2026-11-16 · +57.09318681 CKB · if you withdraw now: claimable in ~531h
+   ↳ This cycle ends at epoch 15485.37 (~531h). Request the withdrawal by then to claim at epoch 15485.37; if you request later, you can only claim at epoch 15665.37.
+
+Hours are estimates (≈4h per epoch).
+
+--- zh
+Nervos DAO · 当前 epoch 15352.70
+DAO 中：130000 CKB · 目前补偿 57.09318681 CKB
+
+• 已存入 130000 CKB 起于 2026-11-16 · +57.09318681 CKB · 若现在提取：约 531 小时后可领取
+   ↳ 本周期在 epoch 15485.37 结束（约 531 小时后）。在此之前提交提取申请，可在 epoch 15485.37 领取；之后提交则要到 epoch 15665.37 才能领取。
+
+小时数为估算（约每 epoch 4 小时）。
+
+--- vi
+Nervos DAO · epoch hiện tại 15352.70
+Trong DAO: 130000 CKB · lãi đến nay 57.09318681 CKB
+
+• đã gửi 130000 CKB từ 2026-11-16 · +57.09318681 CKB · nếu rút ngay: nhận được sau ~531 giờ
+   ↳ Chu kỳ này kết thúc ở epoch 15485.37 (~531 giờ nữa). Gửi yêu cầu rút trước đó thì nhận được ở epoch 15485.37; gửi muộn hơn thì chỉ nhận được ở epoch 15665.37.
+
+Số giờ là ước tính (≈4 giờ mỗi epoch).
+
+--- cross-check against ccc.calcDaoClaimEpoch (real headers)
+position 0: ours 15485.3673 vs ccc 15485.3673 -> MATCH; next 15665.3673; 132.67 epochs left
+RESULT all match

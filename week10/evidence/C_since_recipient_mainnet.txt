@@ -1,0 +1,18 @@
+== 1. The 20 fixture transactions (witnesses removed): how many get the new findings?
+  0x7dbb728957… has 1 input(s) with since; sinces=["0x2004c102cd003b50"]; findings=[]
+  0x8051703472… has 1 input(s) with since; sinces=["0x2004480067003b51"]; findings=[]
+  0xb45dea9707… has 1 input(s) with since; sinces=["0x2004c904ac003b4f"]; findings=[]
+  transactions with a non-zero since: 3/20
+  new findings by kind: {}
+
+== 2. A real live cell spent in an unsigned tx (nothing is signed or sent)
+-- 500 CKB to a lock that never appeared on chain
+   level warn; ["warn: 500 CKB goes to ckb1qzda0c…0szp0w, which has no transaction history on chain. Check the address: a typo would lose the funds."]
+-- 500 CKB to an address with history
+   level warn; []
+-- same, input with absolute block since far in the future
+   level warn; ["warn: Input 0xf221d2b1…858e:1 is time-locked: it can only be spent from block 21195649. The network rejects this transaction until then."]
+-- same, input with absolute block since in the past
+   level warn; ["info: Input 0xf221d2b1…858e:1 has a time lock (from block 21095639) that is already met."]
+-- same, input with relative block since of 1000000 blocks
+   level warn; ["warn: Input 0xf221d2b1…858e:1 is time-locked: it can only be spent 1000000 blocks after the input cell was committed. The network rejects this transaction until then."]

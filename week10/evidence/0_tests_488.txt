@@ -1,0 +1,6 @@
+ RUN  v5.0.5 /root/ckb/ckb-analyst
+ Test Files  15 passed (15)
+      Tests  488 passed (488)
+   Start at  08:33:18
+   Duration  2.52s (import 86%, tests 9%, transform 5%, worker 1%)
+TYPECHECK_OK
