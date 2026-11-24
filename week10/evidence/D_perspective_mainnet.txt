@@ -1,0 +1,54 @@
+
+=== sender: ckb1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqvulnj2v65a7lr34a2dyssr20vux5wzymsudafpe
+party delta in base summary: -800.00002228
+perspective: {"involved":true,"ckbDelta":"-800.00002228"}
+Transaction 0x058cf8fd…2ff07770
+Type: Token mint, Contains unrecognized scripts
+Status: committed · block 5661544 · 2021-10-20T05:04:15.199Z
+Fee: 0.00002228 CKB
+
+Your view (ckb1qzda…udafpe)
+You pay 800.00002228 CKB in total, of which 0.00002228 CKB is the network fee.
+
+Balance changes (5 parties)
+• ckb1qzda…udafpe (Secp256k1Blake160): -800.00002228 CKB
+• ckb1qzl5…zjr5m8 (PWLock): +800 CKB · sudt 0x6aba…60e9 +93070000000000000000 · sudt 0xf285…a706 +1040700000
+• ckb1qpw9…crwlcr (Secp256k1Multisig): +0 CKB
+• ckb1qzfm…x9cjwr (unknown): +0 CKB
+• ckb1qzfm…8se89r (unknown): +0 CKB
+
+=== receiver: ckb1qzl58smqy32hnrq6vxjedcxe2fugvnz497h7yvwqvwel40uh4rltcqgzaqw3ezv5f8ge0wvnsxwkyn6qeuggqmqzjr5m8
+party delta in base summary: 800
+perspective: {"involved":true,"ckbDelta":"800"}
+Transaction 0x058cf8fd…2ff07770
+Type: Token mint, Contains unrecognized scripts
+Status: committed · block 5661544 · 2021-10-20T05:04:15.199Z
+Fee: 0.00002228 CKB
+
+Your view (ckb1qzl5…zjr5m8)
+You receive 800 CKB net.
+You receive 93070000000000000000 raw units of sudt 0x6aba…60e9.
+You receive 1040700000 raw units of sudt 0xf285…a706.
+
+Balance changes (5 parties)
+• ckb1qzda…udafpe (Secp256k1Blake160): -800.00002228 CKB
+• ckb1qzl5…zjr5m8 (PWLock): +800 CKB · sudt 0x6aba…60e9 +93070000000000000000 · sudt 0xf285…a706 +1040700000
+• ckb1qpw9…crwlcr (Secp256k1Multisig): +0 CKB
+
+=== unrelated: ckb1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqgw84hjq3n3ug47mpfnkvcrz0k94n3h2pskqm373
+party delta in base summary: (none)
+perspective: {"involved":false,"ckbDelta":"0"}
+Transaction 0x058cf8fd…2ff07770
+Type: Token mint, Contains unrecognized scripts
+Status: committed · block 5661544 · 2021-10-20T05:04:15.199Z
+Fee: 0.00002228 CKB
+
+Your view (ckb1qzda…kqm373)
+This address is not part of this transaction.
+
+Balance changes (5 parties)
+• ckb1qzda…udafpe (Secp256k1Blake160): -800.00002228 CKB
+• ckb1qzl5…zjr5m8 (PWLock): +800 CKB · sudt 0x6aba…60e9 +93070000000000000000 · sudt 0xf285…a706 +1040700000
+• ckb1qpw9…crwlcr (Secp256k1Multisig): +0 CKB
+• ckb1qzfm…x9cjwr (unknown): +0 CKB
+• ckb1qzfm…8se89r (unknown): +0 CKB
